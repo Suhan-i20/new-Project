@@ -1,6 +1,7 @@
 const { UserModel, ProfileModel } = require("../models");
 const ApiError = require("../utils/ApiError");
 const httpStatus = require("http-status");  // Make sure httpStatus is imported
+const { generatoken } = require("../utils/Tokens.utils");
 
 class AuthService {
   
@@ -23,11 +24,11 @@ class AuthService {
     });
 
     // Create profile for the user
-    const token = generatoken(user)
+    const token = generatoken(user);
     const refresh_token = generatoken(user,'2d')
     await ProfileModelrofil.create({
       user: user._id
-      refresh_token:refresh_token
+      // refresh_token:refresh_token
     });
     
     return {

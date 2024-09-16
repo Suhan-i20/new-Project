@@ -3,7 +3,7 @@ const { PUBLIC_DATA } = require("../../constant")
 const User = require("../models/user.models")
 
 exports.generatoken = (User,expire='id')=>{
-    const token = jwt.sign({userid:user_id},PUBLIC_DATA.jwt_auth,{
+    const token = jwt.sign({User:user_id},PUBLIC_DATA.jwt_auth,{
         expireIn:expire
     })
     return token
